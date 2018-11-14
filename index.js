@@ -17,7 +17,7 @@ var loggerResponse = require('logzio-nodejs').createLogger({
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
   dialogflowFulfillment(request, response);
   loggerRequest.log(request.body);
-  loggerResponse.log(response.body);
+  console.log(dialogflowFulfillment.responseJson_);
 });
 
 // The secret key is provided when you create a new source in the Logless dashboard
