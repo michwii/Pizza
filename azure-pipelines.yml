@@ -27,7 +27,7 @@ steps:
     secureFile: secretKeyServiceAccount.json
 
 - script: |
-    echo $GOOGLE_APPLICATION_CREDENTIALS
+    cd $(Agent.TempDirectory)
 #    npm test
   displayName: 'npm test '
   env:
