@@ -19,6 +19,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   loggerRequest.log(flattenObject(request.body));
   console.log('---------------------');
   loggerResponse.log(flattenObject(dialogflowFulfillment.responseJson_));
+  console.log(dialogflowFulfillment.responseJson_);
   console.log('---------------------');
 });
 
