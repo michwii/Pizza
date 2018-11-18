@@ -245,7 +245,7 @@ describe('DominosMenu', () => {
       ], (err, results) => {
         if(err) done(err);
         var finalBascket = results[2];
-        assert.equal(finalBascket.cart.cartTotal, "12,00€");
+        assert.equal(finalBascket.cart.cartTotal, "11,00€");
         assert.equal(finalBascket.cart.products.length, 1);
         assert.equal(finalBascket.cart.products[0].id, pizza.primaryProduct.productCode);
         assert.equal(finalBascket.cart.products[0].modifications.length, 0);
@@ -260,7 +260,7 @@ describe('DominosMenu', () => {
         assert.equal(bascket.cart.products.length, 2);
         assert.equal(bascket.cart.products[0].id, pizza.primaryProduct.productCode);
         assert.equal(bascket.cart.products[0].modifications.length, 0);
-        assert.equal(bascket.cart.cartTotal, "25,00€");
+        assert.equal(bascket.cart.cartTotal, "24,00€");
         done();
       });
     });
@@ -272,7 +272,7 @@ describe('DominosMenu', () => {
         assert.equal(bascket.cart.products.length, 3);
         assert.equal(bascket.cart.products[1].id, pizza.primaryProduct.productCode);
         assert.equal(bascket.cart.products[1].modifications.length, 0);
-        assert.equal(bascket.cart.cartTotal, "37,00€");
+        assert.equal(bascket.cart.cartTotal, "35,00€");
         done();
       });
     });
@@ -284,7 +284,7 @@ describe('DominosMenu', () => {
         assert.equal(bascket.cart.products.length, 4);
         assert.equal(bascket.cart.products[0].id, pizza.primaryProduct.productCode);
         assert.equal(bascket.cart.products[0].modifications.length, 0);
-        assert.equal(bascket.cart.cartTotal, "50,00€");
+        assert.equal(bascket.cart.cartTotal, "48,00€");
         done();
       });
     });
@@ -296,7 +296,7 @@ describe('DominosMenu', () => {
         assert.equal(bascket.cart.products.length, 5);
         assert.equal(bascket.cart.products[0].id, pizza.primaryProduct.productCode);
         assert.equal(bascket.cart.products[0].modifications.length, 0);
-        assert.equal(bascket.cart.cartTotal, "64,00€");
+        assert.equal(bascket.cart.cartTotal, "63,00€");
         done();
       });
     });
@@ -308,7 +308,7 @@ describe('DominosMenu', () => {
         assert.equal(bascket.cart.products.length, 5);
         assert.equal(bascket.cart.products[0].id, pizza.primaryProduct.productCode);
         assert.equal(bascket.cart.products[0].modifications.length, 0);
-        assert.equal(bascket.cart.cartTotal, "106,00€");
+        assert.equal(bascket.cart.cartTotal, "108,00€");
         done();
       });
     });
@@ -318,7 +318,7 @@ describe('DominosMenu', () => {
       dominosAPI.removeProductFromBascket(pizza, (err, bascket) => {
         if(err) done(err);
         assert.equal(bascket.cart.products.length, 4);
-        assert.equal(bascket.cart.cartTotal, "50,00€");
+        assert.equal(bascket.cart.cartTotal, "48,00€");
         done();
       });
     });
@@ -342,42 +342,42 @@ describe('DominosMenu', () => {
   });
 
   describe("#getBacketTotalAmount", () => {
-    it("Should return 50", (done) => {
+    it("Should return 48", (done) => {
       dominosAPI.getBacketTotalAmount((err, total) => {
         if(err) throw err;
-        assert.equal(total, 50);
+        assert.equal(total, 48);
         done();
       });
     });
-    it("Should return 37", (done) => {
+    it("Should return 35", (done) => {
       var pizza = new FourCheesePizza(Pizza.SIZE_MEDIUM, Pizza.FINE_CRUST);
       dominosAPI.removeProductFromBascket(pizza, (err, bascket) => {
         if(err) throw err;
         dominosAPI.getBacketTotalAmount((err, total) => {
           if(err) throw err;
-          assert.equal(total, 37);
+          assert.equal(total, 35);
           done();
         });
       });
     });
-    it("Should return 24", (done) => {
+    it("Should return 22", (done) => {
       var pizza = new BarbecuePizza(Pizza.SIZE_MEDIUM, Pizza.FINE_CRUST);
       dominosAPI.removeProductFromBascket(pizza, (err, bascket) => {
         if(err) throw err;
         dominosAPI.getBacketTotalAmount((err, total) => {
           if(err) throw err;
-          assert.equal(total, 24);
+          assert.equal(total, 22);
           done();
         });
       });
     });
-    it("Should return 12", (done) => {
+    it("Should return 11", (done) => {
       var pizza = new OrientalePizza(Pizza.SIZE_MEDIUM, Pizza.FINE_CRUST);
       dominosAPI.removeProductFromBascket(pizza, (err, bascket) => {
         if(err) throw err;
         dominosAPI.getBacketTotalAmount((err, total) => {
           if(err) throw err;
-          assert.equal(total, 12);
+          assert.equal(total, 11);
           done();
         });
       });
