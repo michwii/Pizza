@@ -13,30 +13,20 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    ls
-    cd functions
-    ls
     npm install
-#    npm test
   displayName: 'npm install '
 
-- task: ArchiveFiles@2
+
+# Download Secure File
+# Download a secure file to a temporary location on the build or release agent
+- task: DownloadSecureFile@1
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)/functions' 
-    includeRootFolder: false 
-    archiveType: 'zip' 
-    archiveFile: '$(Build.ArtifactStagingDirectory)/sourceCode.zip' 
-    replaceExistingArchive: true 
+    secureFile: secretKeyServiceAccount.json
 
+- script: |
+    export GOOGLE_APPLICATION_CREDENTIALS="$env:DOWNLOADSECUREFILE_SECUREFILEPATH"
+  displayName: 'export google authentication'
 
-# Publish Build Artifacts
-# Publish build artifacts to Azure Artifacts/TFS or a file share
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'sourceCode' 
-    publishLocation: 'Container' # Options: container, filePath
-    #targetPath: # Required when publishLocation == FilePath
-    #parallel: false # Optional
-    #parallelCount: # Optional
-
+- script: |
+    npm test
+  displayName: 'npm test '
