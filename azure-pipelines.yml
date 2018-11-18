@@ -24,7 +24,7 @@ steps:
     secureFile: secretKeyServiceAccount.json
 
 - script: |
-    export GOOGLE_APPLICATION_CREDENTIALS="$(env:DOWNLOADSECUREFILE_SECUREFILEPATH)"
+    export GOOGLE_APPLICATION_CREDENTIALS=$(env:DOWNLOADSECUREFILE_SECUREFILEPATH)
   displayName: 'export google authentication'
 
 #- script: |
