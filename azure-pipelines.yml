@@ -23,10 +23,10 @@ steps:
   inputs:
     secureFile: secretKeyServiceAccount.json
 
-- script: |
-    export GOOGLE_APPLICATION_CREDENTIALS="$env:DOWNLOADSECUREFILE_SECUREFILEPATH"
-  displayName: 'export google authentication'
+#- script: |
+#    export GOOGLE_APPLICATION_CREDENTIALS="$env:DOWNLOADSECUREFILE_SECUREFILEPATH"
+#  displayName: 'export google authentication'
 
-- script: |
-    npm test
-  displayName: 'npm test '
+#- script: |
+#    npm test
+#  displayName: 'npm test '
