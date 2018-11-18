@@ -16,9 +16,9 @@ var loggerResponse = require('logzio-nodejs').createLogger({
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
   dialogflowFulfillment(request, response);
-  loggerRequest.log(request.body);
+  loggerRequest.log(flattenObject(request.body));
   console.log('---------------------');
-  console.log(dialogflowFulfillment.responseJson_);
+  loggerResponse.log(flattenObject(dialogflowFulfillment.responseJson_));
   console.log('---------------------');
 });
 
