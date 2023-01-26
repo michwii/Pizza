@@ -1,0 +1,9 @@
+{
+	"name": "datafactory-elyes-to-delete",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d2191ce9-83b2-4b9e-b25a-476d1a355956",
+		"tenantId": "cbeb3ecc-6f45-4183-b5a8-088140deae5d"
+	}
+}
